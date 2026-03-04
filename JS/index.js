@@ -155,7 +155,7 @@ function initWatch() {
     let watchModel = null;
     const loader = new THREE.GLTFLoader();
     loader.load(
-        "./Assets/Watch-Model/Rolex.glb",
+        "./Assets/Watch-Model/rolex.glb",
         (gltf) => {
             watchModel = gltf.scene;
 
