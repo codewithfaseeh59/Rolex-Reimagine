@@ -13,8 +13,7 @@ A luxury showcase website for Rolex timepieces, featuring an immersive visual ex
 
 You can view the live website here:
 
-### [Rolex — Perpetual Excellence](https://your-username.github.io/Rolex/)
-
+### [Rolex — Perpetual Excellence](https://codewithfaseeh59.github.io/Rolex-Reimagine/)
 
 ---
 
