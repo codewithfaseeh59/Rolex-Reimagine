@@ -4,25 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Craftsmanship — Rolex</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Craftsmanship — The AURELIAN Process</title>
+    <meta name="description" content="Discover how the fictional AURELIAN atelier makes a watch: in-house movements, Aurasteel cases, precision testing and the Aurum rotor. A concept project.">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AURELIAN">
+    <meta property="og:title" content="Craftsmanship — The AURELIAN Process">
+    <meta property="og:description" content="Discover how the fictional AURELIAN atelier makes a watch: in-house movements, Aurasteel cases, precision testing and the Aurum rotor. A concept project.">
+    <meta property="og:image" content="/Assets/Images/aurelian-abyss.webp">
+    <meta property="og:image:alt" content="AURELIAN Abyss diver's watch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Craftsmanship — The AURELIAN Process">
+    <meta name="twitter:description" content="Discover how the fictional AURELIAN atelier makes a watch: in-house movements, Aurasteel cases, precision testing and the Aurum rotor. A concept project.">
+    <meta name="twitter:image" content="/Assets/Images/aurelian-abyss.webp">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" /></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" /></noscript>
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/craftsmanship.css">
 </head>
 
 <body>
+    <noscript><style>.loader{display:none}</style></noscript>
 
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursor-follower"></div>
 
-    <div class="loader" id="loader">
-        <div class="loader-logo">ROLE<span>X</span></div>
+    <div class="loader" id="loader" aria-hidden="true">
+        <div class="loader-logo">AURELIA<span>N</span></div>
         <div class="loader-bar-wrap">
             <div class="loader-bar" id="loader-bar"></div>
         </div>
@@ -33,15 +53,15 @@
 
 
         <header class="main-header">
-            <a href="../index.html" class="nav-logo">ROLE<span>X</span></a>
-            <button class="hamburger" id="hamburger" aria-label="Menu">
+            <a href="../index.html" class="nav-logo">AURELIA<span>N</span></a>
+            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navbar">
                 <i class="ri-menu-3-fill" id="ham-icon"></i>
             </button>
             <nav class="navbar" id="navbar">
                 <ul class="nav-links">
-                    <li><a href="../index.html" class="active">Home</a></li>
+                    <li><a href="../index.html">Home</a></li>
                     <li><a href="./collection.html">Collection</a></li>
-                    <li><a href="./craftsmanship.html">Craftsmanship</a></li>
+                    <li><a href="./craftsmanship.html" class="active" aria-current="page">Craftsmanship</a></li>
                     <li><a href="./about.html">About</a></li>
                     <li><a href="./contact.html">Contact</a></li>
                 </ul>
@@ -54,7 +74,7 @@
             <section class="page-hero">
                 <div class="page-hero-content">
                     <p class="hero-eyebrow">The Art of Making</p>
-                    <h1 class="page-hero-title">The Rolex <em>Process</em></h1>
+                    <h1 class="page-hero-title">The AURELIAN <em>Process</em></h1>
                 </div>
             </section>
 
@@ -62,7 +82,7 @@
                 <div class="craft-intro-wrap">
                     <p class="section-label">Our Philosophy</p>
                     <h2 class="section-title">Where Science Meets <em>Art</em></h2>
-                    <p class="craft-intro-text">Every Rolex watch is a testament to the art of fine watchmaking. From
+                    <p class="craft-intro-text">Every AURELIAN watch is a testament to the art of fine watchmaking. From
                         the selection of raw materials to the final quality control, each step of the manufacturing
                         process reflects our uncompromising pursuit of excellence.</p>
                 </div>
@@ -72,12 +92,12 @@
                 <div class="process-step">
                     <div class="process-step-num">01</div>
                     <div class="process-step-img">
-                        <img src="../Assets/Images/craft-1.png" alt="In-House Movements" />
+                        <img src="../Assets/Images/craft-1.webp" alt="Movement components from the AURELIAN atelier" width="583" height="1067" loading="lazy" decoding="async">
                     </div>
                     <div class="process-step-content">
                         <p class="section-label">Movement</p>
                         <h2 class="section-title">In-House <em>Movements</em></h2>
-                        <p class="process-step-text">Every Rolex movement is designed, developed, and manufactured
+                        <p class="process-step-text">Every AURELIAN movement is designed, developed, and manufactured
                             entirely in-house. This complete integration of the production process ensures
                             uncompromising quality at every stage of the watchmaking process.</p>
                     </div>
@@ -85,39 +105,34 @@
                 <div class="process-step reverse">
                     <div class="process-step-num">02</div>
                     <div class="process-step-img">
-                        <img src="../Assets/Images/craft-2.png" alt="Oystersteel" />
+                        <img src="../Assets/Images/craft-2.webp" alt="Polished Aurasteel case detail" width="600" height="1099" loading="lazy" decoding="async">
                     </div>
                     <div class="process-step-content">
                         <p class="section-label">Materials</p>
-                        <h2 class="section-title">Oystersteel <em>Mastery</em></h2>
-                        <p class="process-step-text">Rolex uses its own exclusive alloy — Oystersteel — from the 904L
-                            steel family. Particularly resistant to corrosion, it acquires a remarkable sheen when
-                            polished.</p>
+                        <h2 class="section-title">Aurasteel <em>Mastery</em></h2>
+                        <p class="process-step-text">AURELIAN uses its own exclusive alloy — Aurasteel — a high-chromium steel developed in our atelier. Highly resistant to corrosion, it acquires a remarkable sheen when polished.</p>
                     </div>
                 </div>
                 <div class="process-step">
                     <div class="process-step-num">03</div>
                     <div class="process-step-img">
-                        <img src="../Assets/Images/craft-3.png" alt="Chronometer" />
+                        <img src="../Assets/Images/craft-3.webp" alt="Precision testing of a watch movement" width="288" height="360" loading="lazy" decoding="async">
                     </div>
                     <div class="process-step-content">
                         <p class="section-label">Precision</p>
-                        <h2 class="section-title">Superlative <em>Chronometer</em></h2>
-                        <p class="process-step-text">Every Rolex watch is a certified Superlative Chronometer — accurate
-                            to -2/+2 seconds per day. A standard that goes far beyond the requirements of the Swiss
-                            Official Chronometer Testing Institute.</p>
+                        <h2 class="section-title">Precision <em>Certified</em></h2>
+                        <p class="process-step-text">Every AURELIAN watch is tested over fifteen days and certified accurate to -3/+3 seconds per day — a standard that goes far beyond common industry requirements.</p>
                     </div>
                 </div>
                 <div class="process-step reverse">
                     <div class="process-step-num">04</div>
                     <div class="process-step-img">
-                        <img src="../Assets/Images/craft-4.png" alt="Perpetual Rotor" />
+                        <img src="../Assets/Images/craft-4.webp" alt="Self-winding Aurum rotor" width="1000" height="1250" loading="lazy" decoding="async">
                     </div>
                     <div class="process-step-content">
                         <p class="section-label">Innovation</p>
-                        <h2 class="section-title">Perpetual <em>Rotor</em></h2>
-                        <p class="process-step-text">The invention of the self-winding mechanism with a Perpetual rotor
-                            in 1931 transformed watchmaking. It winds the mainspring continuously through the natural
+                        <h2 class="section-title">Aurum <em>Rotor</em></h2>
+                        <p class="process-step-text">Our self-winding mechanism with the Aurum rotor, introduced in 1952, transformed our watchmaking. It winds the mainspring continuously through the natural
                             motion of the wearer's wrist.</p>
                     </div>
                 </div>
@@ -134,8 +149,7 @@
                         <p class="stat-label">Hours Power Reserve</p>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-num" data-count="120">0</div>
-                        <p class="stat-label">Years of Innovation</p>
+                        <div class="stat-num" data-count="100">0</div> <p class="stat-label">Years of Innovation</p>
                     </div>
                     <div class="stat-item">
                         <div class="stat-num" data-count="300">0</div>
@@ -149,7 +163,7 @@
                     <div class="quote-mark">"</div>
                     <p class="quote-text">Perfection is not an accident. It is the result of relentless dedication to
                         every detail, no matter how small.</p>
-                    <p class="quote-author">Rolex Manufacture — Geneva</p>
+                    <p class="quote-author">AURELIAN Atelier — Neuchâtel</p>
                 </div>
             </section>
         </main>
@@ -157,27 +171,26 @@
         <footer class="footer">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <div class="footer-brand-name">ROLE<span>X</span></div>
-                    <p class="footer-tagline">Since 1905, Rolex has been at the forefront of watchmaking — crafting
-                        timepieces that endure through generations.</p>
+                    <div class="footer-brand-name">AURELIA<span>N</span></div>
+                    <p class="footer-tagline">Since 1926, AURELIAN has been at the forefront of watchmaking — crafting timepieces that endure through generations.</p>
                 </div>
                 <div class="footer-col">
                     <p class="footer-col-title">Collections</p>
                     <ul>
-                        <li><a href="./collection.html">Submariner</a></li>
-                        <li><a href="./collection.html">Datejust</a></li>
-                        <li><a href="./collection.html">Day-Date</a></li>
-                        <li><a href="./collection.html">GMT-Master II</a></li>
-                        <li><a href="./collection.html">Daytona</a></li>
+                        <li><a href="./collection.html">Abyss</a></li>
+                        <li><a href="./collection.html">Solstice</a></li>
+                        <li><a href="./collection.html">Sovereign</a></li>
+                        <li><a href="./collection.html">Voyager</a></li>
+                        <li><a href="./collection.html">Circuit</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <p class="footer-col-title">Discover</p>
                     <ul>
-                        <li><a href="./craftsmanship.html">Craftsmanship</a></li>
+                        <li><a href="./craftsmanship.html" class="active" aria-current="page">Craftsmanship</a></li>
                         <li><a href="./about.html">Our Heritage</a></li>
-                        <li><a href="#">Philanthropy</a></li>
-                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="./about.html#philanthropy">Philanthropy</a></li>
+                        <li><a href="./about.html#testimonials">Testimonials</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -190,24 +203,20 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="footer-copy">&copy; 2026 ROLEX SA — Concept Redesign. All rights reserved.</p>
+                <p class="footer-copy">Concept project by Faseeh Khan. Not a real brand.</p>
                 <div class="footer-social-icons">
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://github.com/codewithfaseehh59" target="_blank" rel="noopener noreferrer" aria-label="Faseeh Khan on GitHub"><i class="fa-brands fa-github"></i></a>
                 </div>
             </div>
         </footer>
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="../JS/craftsmanship.js"></script>
-    <script src="../JS/common.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script defer src="../JS/craftsmanship.js"></script>
+    <script defer src="../JS/common.js"></script>
 </body>
 
 </html>

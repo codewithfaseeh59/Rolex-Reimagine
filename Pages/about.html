@@ -4,25 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About — Rolex</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>About AURELIAN — A Century of Watchmaking Heritage</title>
+    <meta name="description" content="Meet the fictional AURELIAN atelier: its founder, a century-long timeline, guiding values, philanthropy and client stories. A concept project by Faseeh Khan.">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AURELIAN">
+    <meta property="og:title" content="About AURELIAN — A Century of Watchmaking Heritage">
+    <meta property="og:description" content="Meet the fictional AURELIAN atelier: its founder, a century-long timeline, guiding values, philanthropy and client stories. A concept project by Faseeh Khan.">
+    <meta property="og:image" content="/Assets/Images/aurelian-abyss.webp">
+    <meta property="og:image:alt" content="AURELIAN Abyss diver's watch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About AURELIAN — A Century of Watchmaking Heritage">
+    <meta name="twitter:description" content="Meet the fictional AURELIAN atelier: its founder, a century-long timeline, guiding values, philanthropy and client stories. A concept project by Faseeh Khan.">
+    <meta name="twitter:image" content="/Assets/Images/aurelian-abyss.webp">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" /></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" /></noscript>
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/about.css">
 </head>
 
 <body>
+    <noscript><style>.loader{display:none}</style></noscript>
 
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursor-follower"></div>
 
-    <div class="loader" id="loader">
-        <div class="loader-logo">ROLE<span>X</span></div>
+    <div class="loader" id="loader" aria-hidden="true">
+        <div class="loader-logo">AURELIA<span>N</span></div>
         <div class="loader-bar-wrap">
             <div class="loader-bar" id="loader-bar"></div>
         </div>
@@ -32,16 +52,16 @@
     <div id="wrapper" data-scroll-container>
 
         <header class="main-header">
-    <a href="../index.html" class="nav-logo">ROLE<span>X</span></a>
-            <button class="hamburger" id="hamburger" aria-label="Menu">
+    <a href="../index.html" class="nav-logo">AURELIA<span>N</span></a>
+            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navbar">
                 <i class="ri-menu-3-fill" id="ham-icon"></i>
             </button>
             <nav class="navbar" id="navbar">
                 <ul class="nav-links">
-                    <li><a href="../index.html" class="active">Home</a></li>
+                    <li><a href="../index.html">Home</a></li>
                     <li><a href="./collection.html">Collection</a></li>
                     <li><a href="./craftsmanship.html">Craftsmanship</a></li>
-                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./about.html" class="active" aria-current="page">About</a></li>
                     <li><a href="./contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -61,18 +81,13 @@
             <section class="founder-section">
                 <div class="founder-grid">
                     <div class="founder-img">
-                        <img src="../Assets/Images/founder.png" alt="Hans Wilsdorf" />
+                        <img src="../Assets/Images/founder.webp" alt="Portrait of Lucien Marchand, fictional founder of AURELIAN" width="600" height="863" loading="lazy" decoding="async">
                     </div>
                     <div class="founder-content">
                         <p class="section-label">The Visionary</p>
-                        <h2 class="section-title">Hans <em>Wilsdorf</em></h2>
-                        <p class="founder-text">In 1905, a young Hans Wilsdorf founded the company that would become
-                            Rolex. His vision was simple yet revolutionary — to place a reliable and precise watch on
-                            the wrist. What followed was a century of innovation that transformed the world of
-                            watchmaking forever.</p>
-                        <p class="founder-text">Wilsdorf's relentless pursuit of perfection led to a series of
-                            groundbreaking inventions — the waterproof Oyster case, the self-winding Perpetual rotor,
-                            and the first wristwatch to display two time zones simultaneously.</p>
+                        <h2 class="section-title">Lucien <em>Marchand</em></h2>
+                        <p class="founder-text">In 1926, a young Lucien Marchand founded the atelier that would become AURELIAN. His vision was simple yet ambitious — to place a reliable and precise watch on every wrist. What followed was a century of innovation that shaped how we think about watchmaking.</p>
+                        <p class="founder-text">Marchand's relentless pursuit of perfection led to a series of landmark inventions — the sealed Halcyon case, the self-winding Aurum rotor, and the Voyager dual-time complication.</p>
                     </div>
                 </div>
             </section>
@@ -80,71 +95,63 @@
             <section class="timeline-section">
                 <div class="timeline-header">
                     <p class="section-label">Our Journey</p>
-                    <h2 class="section-title">120 Years of <em>History</em></h2>
+                    <h2 class="section-title">100 Years of <em>History</em></h2>
                 </div>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-year">1905</div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">The Beginning</h3>
-                            <p class="timeline-text">Hans Wilsdorf and Alfred Davis found the company in London, with a
-                                vision to create reliable wristwatches.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">1910</div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">First Chronometer</h3>
-                            <p class="timeline-text">A Rolex watch receives the first wristwatch chronometer
-                                certification from the Official Watch Rating Centre in Bienne.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
                         <div class="timeline-year">1926</div>
                         <div class="timeline-content">
-                            <h3 class="timeline-title">Oyster Case</h3>
-                            <p class="timeline-text">Rolex patents the Oyster — the world's first waterproof and
-                                dustproof wristwatch case.</p>
+                            <h3 class="timeline-title">The Beginning</h3>
+                            <p class="timeline-text">Lucien Marchand and Adèle Roux found the atelier in Neuchâtel, with a vision to create reliable wristwatches.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">1931</div>
+                        <div class="timeline-year">1934</div>
                         <div class="timeline-content">
-                            <h3 class="timeline-title">Perpetual Rotor</h3>
-                            <p class="timeline-text">Rolex invents the self-winding mechanism with a Perpetual rotor — a
-                                revolution in watchmaking.</p>
+                            <h3 class="timeline-title">First Precision Certificate</h3>
+                            <p class="timeline-text">An AURELIAN calibre earns its first in-house precision certificate, setting the standard for every watch that follows.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">1953</div>
+                        <div class="timeline-year">1941</div>
                         <div class="timeline-content">
-                            <h3 class="timeline-title">Submariner</h3>
-                            <p class="timeline-text">The Submariner is introduced — the first diver's watch waterproof
-                                to 100 metres.</p>
+                            <h3 class="timeline-title">Halcyon Case</h3>
+                            <p class="timeline-text">AURELIAN patents the Halcyon — a sealed, dustproof wristwatch case.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">1963</div>
+                        <div class="timeline-year">1952</div>
                         <div class="timeline-content">
-                            <h3 class="timeline-title">Daytona</h3>
-                            <p class="timeline-text">The Cosmograph Daytona is launched — destined to become one of the
-                                most iconic watches in history.</p>
+                            <h3 class="timeline-title">Aurum Rotor</h3>
+                            <p class="timeline-text">AURELIAN introduces the self-winding Aurum rotor — a revolution in the atelier's watchmaking.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">2005</div>
+                        <div class="timeline-year">1964</div>
                         <div class="timeline-content">
-                            <h3 class="timeline-title">Centenary</h3>
-                            <p class="timeline-text">Rolex celebrates 100 years of watchmaking excellence — a century of
-                                innovation, precision, and prestige.</p>
+                            <h3 class="timeline-title">Abyss</h3>
+                            <p class="timeline-text">The Abyss is introduced — our first diver's watch, waterproof to 100 metres.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">2025</div>
+                        <div class="timeline-year">1971</div>
                         <div class="timeline-content">
-                            <h3 class="timeline-title">120 Years</h3>
-                            <p class="timeline-text">Rolex marks 120 years of crafting timepieces that define elegance,
-                                performance, and enduring value.</p>
+                            <h3 class="timeline-title">Circuit</h3>
+                            <p class="timeline-text">The Circuit chronograph is launched — destined to become the atelier's most celebrated sports watch.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1998</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">New Manufacture</h3>
+                            <p class="timeline-text">A purpose-built manufacture opens, bringing case, dial and movement making under one roof.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2026</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">One Hundred Years</h3>
+                            <p class="timeline-text">AURELIAN marks a century of crafting timepieces that define elegance, performance and enduring value.</p>
                         </div>
                     </div>
                 </div>
@@ -159,26 +166,71 @@
                     <div class="value-card">
                         <div class="value-num">01</div>
                         <h3 class="value-title">Precision</h3>
-                        <p class="value-text">Every Rolex is a Superlative Chronometer — certified to perform to the
-                            highest standards of precision and reliability.</p>
+                        <p class="value-text">Every AURELIAN is tested for precision — certified to perform to the highest standards of accuracy and reliability.</p>
                     </div>
                     <div class="value-card">
                         <div class="value-num">02</div>
                         <h3 class="value-title">Excellence</h3>
-                        <p class="value-text">From raw materials to the finished watch, every element of a Rolex is
-                            crafted to the most exacting standards.</p>
+                        <p class="value-text">From raw materials to the finished watch, every element of an AURELIAN is crafted to the most exacting standards.</p>
                     </div>
                     <div class="value-card">
                         <div class="value-num">03</div>
                         <h3 class="value-title">Innovation</h3>
-                        <p class="value-text">Rolex has been at the forefront of watchmaking innovation for over a
-                            century — pioneering technologies that have shaped the industry.</p>
+                        <p class="value-text">AURELIAN has been at the forefront of watchmaking innovation for a century — pioneering technologies that have shaped our craft.</p>
                     </div>
                     <div class="value-card">
                         <div class="value-num">04</div>
                         <h3 class="value-title">Legacy</h3>
-                        <p class="value-text">A Rolex is not just a watch — it is an heirloom. Crafted to be passed down
+                        <p class="value-text">An AURELIAN is not just a watch — it is an heirloom. Crafted to be passed down
                             through generations, retaining its value and beauty.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="values-section" id="philanthropy">
+                <div class="values-header">
+                    <p class="section-label">Giving Back</p>
+                    <h2 class="section-title">Our <em>Philanthropy</em></h2>
+                </div>
+                <div class="values-grid values-grid-three">
+                    <div class="value-card">
+                        <div class="value-num">01</div>
+                        <h3 class="value-title">Craft Education</h3>
+                        <p class="value-text">The AURELIAN Foundation funds apprenticeships that train the next generation of watchmakers and artisans.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-num">02</div>
+                        <h3 class="value-title">Ocean Stewardship</h3>
+                        <p class="value-text">A share of every Abyss sold supports coastal clean-ups and marine research partners.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-num">03</div>
+                        <h3 class="value-title">Community</h3>
+                        <p class="value-text">Our atelier teams volunteer each year to support local schools, workshops and cultural projects.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="values-section" id="testimonials">
+                <div class="values-header">
+                    <p class="section-label">Client Stories</p>
+                    <h2 class="section-title">What Our <em>Clients</em> Say</h2>
+                </div>
+                <div class="values-grid values-grid-three">
+                    <div class="value-card">
+                        <div class="value-num">01</div>
+                        <h3 class="value-title">Elena R.</h3>
+                        <p class="value-text">“Wearing the Solstice feels like carrying a small piece of history. The finishing is flawless.”</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-num">02</div>
+                        <h3 class="value-title">Marcus T.</h3>
+                        <p class="value-text">“I wear my Abyss every dive season. It has never missed a beat, even at depth.”</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-num">03</div>
+                        <h3 class="value-title">Priya S.</h3>
+                        <p class="value-text">“The Voyager has joined me on every trip for ten years. Two time zones, zero fuss.”</p>
                     </div>
                 </div>
             </section>
@@ -186,9 +238,8 @@
             <section class="quote-section">
                 <div class="quote-wrap">
                     <div class="quote-mark">"</div>
-                    <p class="quote-text">A watch is not just a timepiece. It is a reflection of who you are — and who
-                        you aspire to be.</p>
-                    <p class="quote-author">Hans Wilsdorf — Founder, Rolex</p>
+                    <p class="quote-text">Time is the one luxury we cannot make more of — so we make every second worth wearing.</p>
+                    <p class="quote-author">Lucien Marchand — Founder, AURELIAN</p>
                 </div>
             </section>
         </main>
@@ -196,18 +247,17 @@
         <footer class="footer">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <div class="footer-brand-name">ROLE<span>X</span></div>
-                    <p class="footer-tagline">Since 1905, Rolex has been at the forefront of watchmaking — crafting
-                        timepieces that endure through generations.</p>
+                    <div class="footer-brand-name">AURELIA<span>N</span></div>
+                    <p class="footer-tagline">Since 1926, AURELIAN has been at the forefront of watchmaking — crafting timepieces that endure through generations.</p>
                 </div>
                 <div class="footer-col">
                     <p class="footer-col-title">Collections</p>
                     <ul>
-                        <li><a href="./collection.html">Submariner</a></li>
-                        <li><a href="./collection.html">Datejust</a></li>
-                        <li><a href="./collection.html">Day-Date</a></li>
-                        <li><a href="./collection.html">GMT-Master II</a></li>
-                        <li><a href="./collection.html">Daytona</a></li>
+                        <li><a href="./collection.html">Abyss</a></li>
+                        <li><a href="./collection.html">Solstice</a></li>
+                        <li><a href="./collection.html">Sovereign</a></li>
+                        <li><a href="./collection.html">Voyager</a></li>
+                        <li><a href="./collection.html">Circuit</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -215,8 +265,8 @@
                     <ul>
                         <li><a href="./craftsmanship.html">Craftsmanship</a></li>
                         <li><a href="./about.html">Our Heritage</a></li>
-                        <li><a href="#">Philanthropy</a></li>
-                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#philanthropy" data-scroll-to>Philanthropy</a></li>
+                        <li><a href="#testimonials" data-scroll-to>Testimonials</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -229,24 +279,20 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="footer-copy">&copy; 2026 ROLEX SA — Concept Redesign. All rights reserved.</p>
+                <p class="footer-copy">Concept project by Faseeh Khan. Not a real brand.</p>
                 <div class="footer-social-icons">
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://github.com/codewithfaseehh59" target="_blank" rel="noopener noreferrer" aria-label="Faseeh Khan on GitHub"><i class="fa-brands fa-github"></i></a>
                 </div>
             </div>
         </footer>
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="../JS/about.js"></script>
-    <script src="../JS/common.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script defer src="../JS/about.js"></script>
+    <script defer src="../JS/common.js"></script>
 </body>
 
 </html>

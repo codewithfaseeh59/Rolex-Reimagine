@@ -35,7 +35,7 @@
 }
 
 .form-label {
-    font-size: 0.62rem;
+    font-size: 0.7rem;
     letter-spacing: 0.4em;
     text-transform: uppercase;
     color: #b8972a;
@@ -156,7 +156,7 @@
 }
 
 .contact-social-icons a {
-    color: rgba(200, 192, 176, 0.4);
+    color: rgba(200, 192, 176, 0.6);
     font-size: 1.1rem;
     transition: color 0.3s;
     text-decoration: none;
@@ -212,7 +212,7 @@
     font-size: 0.78rem;
     line-height: 1.7;
     color: #c8c0b0;
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
 @media (max-width: 1024px) {
@@ -226,6 +226,10 @@
     .contact-grid { grid-template-columns: 1fr; gap: 60px; }
     .retailers-section { padding: 60px 30px; }
     .retailers-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .contact-social-icons a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; }
+    .btn-submit { min-height: 44px; font-size: 0.75rem; }
+    .form-input { min-height: 44px; }
+    .form-label { font-size: 0.75rem; }
 }
 @media (max-width: 480px) {
     .contact-section { padding: 50px 20px; }

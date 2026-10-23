@@ -4,25 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact — Rolex</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Contact AURELIAN — Enquiries and Salons</title>
+    <meta name="description" content="Get in touch with the fictional AURELIAN atelier: send a message, find contact details and browse six concept salons worldwide. A portfolio concept project.">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AURELIAN">
+    <meta property="og:title" content="Contact AURELIAN — Enquiries and Salons">
+    <meta property="og:description" content="Get in touch with the fictional AURELIAN atelier: send a message, find contact details and browse six concept salons worldwide. A portfolio concept project.">
+    <meta property="og:image" content="/Assets/Images/aurelian-abyss.webp">
+    <meta property="og:image:alt" content="AURELIAN Abyss diver's watch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact AURELIAN — Enquiries and Salons">
+    <meta name="twitter:description" content="Get in touch with the fictional AURELIAN atelier: send a message, find contact details and browse six concept salons worldwide. A portfolio concept project.">
+    <meta name="twitter:image" content="/Assets/Images/aurelian-abyss.webp">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" /></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" /></noscript>
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/contact.css">
 </head>
 
 <body>
+    <noscript><style>.loader{display:none}</style></noscript>
 
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursor-follower"></div>
 
-    <div class="loader" id="loader">
-        <div class="loader-logo">ROLE<span>X</span></div>
+    <div class="loader" id="loader" aria-hidden="true">
+        <div class="loader-logo">AURELIA<span>N</span></div>
         <div class="loader-bar-wrap">
             <div class="loader-bar" id="loader-bar"></div>
         </div>
@@ -33,17 +53,17 @@
 
 
         <header class="main-header">
-    <a href="../index.html" class="nav-logo">ROLE<span>X</span></a>
-            <button class="hamburger" id="hamburger" aria-label="Menu">
+    <a href="../index.html" class="nav-logo">AURELIA<span>N</span></a>
+            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navbar">
                 <i class="ri-menu-3-fill" id="ham-icon"></i>
             </button>
             <nav class="navbar" id="navbar">
                 <ul class="nav-links">
-                    <li><a href="../index.html" class="active">Home</a></li>
+                    <li><a href="../index.html">Home</a></li>
                     <li><a href="./collection.html">Collection</a></li>
                     <li><a href="./craftsmanship.html">Craftsmanship</a></li>
                     <li><a href="./about.html">About</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./contact.html" class="active" aria-current="page">Contact</a></li>
                 </ul>
             </nav>
         </header>
@@ -66,16 +86,16 @@
                         <h2 class="section-title">We'd Love To <em>Hear</em> From You</h2>
                         <div class="contact-form">
                             <div class="form-group">
-                                <label class="form-label">Full Name</label>
-                                <input type="text" class="form-input" placeholder="Your full name" />
+                                <label class="form-label" for="contact-name">Full Name</label>
+                                <input type="text" id="contact-name" name="name" autocomplete="name" class="form-input" placeholder="Your full name" />
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Email Address</label>
-                                <input type="email" class="form-input" placeholder="your@email.com" />
+                                <label class="form-label" for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" name="email" autocomplete="email" class="form-input" placeholder="your@email.com" />
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Subject</label>
-                                <select class="form-input form-select">
+                                <label class="form-label" for="contact-subject">Subject</label>
+                                <select id="contact-subject" name="subject" class="form-input form-select">
                                     <option value="" disabled selected>Select a subject</option>
                                     <option>Find a Retailer</option>
                                     <option>Customer Service</option>
@@ -84,10 +104,10 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Message</label>
-                                <textarea class="form-input form-textarea" placeholder="Your message..."></textarea>
+                                <label class="form-label" for="contact-message">Message</label>
+                                <textarea id="contact-message" name="message" class="form-input form-textarea" placeholder="Your message..."></textarea>
                             </div>
-                            <button class="btn-submit">Send Message</button>
+                            <button type="submit" class="btn-submit">Send Message</button>
                         </div>
                     </div>
 
@@ -100,9 +120,8 @@
                                     <i class="fa-solid fa-location-dot"></i>
                                 </div>
                                 <div>
-                                    <h4 class="contact-info-title">Headquarters</h4>
-                                    <p class="contact-info-text">Rue François-Dussaud 3-5-7<br>1211 Geneva 26,
-                                        Switzerland</p>
+                                    <h3 class="contact-info-title">Headquarters</h3>
+                                    <p class="contact-info-text">Rue de l'Atelier 1<br>2000 Neuchâtel, Switzerland</p>
                                 </div>
                             </div>
                             <div class="contact-info-item">
@@ -110,8 +129,8 @@
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <div>
-                                    <h4 class="contact-info-title">Phone</h4>
-                                    <p class="contact-info-text">+41 22 302 22 00</p>
+                                    <h3 class="contact-info-title">Phone</h3>
+                                    <p class="contact-info-text">+41 00 000 00 00</p>
                                 </div>
                             </div>
                             <div class="contact-info-item">
@@ -119,8 +138,8 @@
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <h4 class="contact-info-title">Email</h4>
-                                    <p class="contact-info-text">info@rolex.com</p>
+                                    <h3 class="contact-info-title">Email</h3>
+                                    <p class="contact-info-text">hello@aurelian.example</p>
                                 </div>
                             </div>
                             <div class="contact-info-item">
@@ -128,7 +147,7 @@
                                     <i class="fa-solid fa-clock"></i>
                                 </div>
                                 <div>
-                                    <h4 class="contact-info-title">Working Hours</h4>
+                                    <h3 class="contact-info-title">Working Hours</h3>
                                     <p class="contact-info-text">Monday — Friday<br>9:00 AM — 6:00 PM CET</p>
                                 </div>
                             </div>
@@ -137,10 +156,7 @@
                         <div class="contact-socials">
                             <p class="section-label">Follow Us</p>
                             <div class="contact-social-icons">
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                <a href="https://github.com/codewithfaseehh59" target="_blank" rel="noopener noreferrer" aria-label="Faseeh Khan on GitHub"><i class="fa-brands fa-github"></i></a>
                             </div>
                         </div>
                     </div>
@@ -156,33 +172,27 @@
                 <div class="retailers-grid">
                     <div class="retailer-card">
                         <h3 class="retailer-city">Geneva</h3>
-                        <p class="retailer-address">Place de Longemalle 1<br>1204 Geneva, Switzerland</p>
-                        <a href="#" class="watch-card-link">Get Directions →</a>
+                        <p class="retailer-address">12 Quai de l'Atelier<br>1204 Geneva, Switzerland</p>
                     </div>
                     <div class="retailer-card">
                         <h3 class="retailer-city">London</h3>
-                        <p class="retailer-address">7 Old Bond Street<br>London W1S 4PH, UK</p>
-                        <a href="#" class="watch-card-link">Get Directions →</a>
+                        <p class="retailer-address">7 Aurelian Row<br>London W1S 0AA, UK</p>
                     </div>
                     <div class="retailer-card">
                         <h3 class="retailer-city">New York</h3>
-                        <p class="retailer-address">665 Fifth Avenue<br>New York, NY 10022, USA</p>
-                        <a href="#" class="watch-card-link">Get Directions →</a>
+                        <p class="retailer-address">100 Concept Avenue<br>New York, NY 10001, USA</p>
                     </div>
                     <div class="retailer-card">
                         <h3 class="retailer-city">Dubai</h3>
-                        <p class="retailer-address">Dubai Mall, Financial Centre Road<br>Dubai, UAE</p>
-                        <a href="#" class="watch-card-link">Get Directions →</a>
+                        <p class="retailer-address">Atelier Pavilion, Marina Walk<br>Dubai, UAE</p>
                     </div>
                     <div class="retailer-card">
                         <h3 class="retailer-city">Tokyo</h3>
-                        <p class="retailer-address">5-4-1 Ginza, Chuo-ku<br>Tokyo 104-0061, Japan</p>
-                        <a href="#" class="watch-card-link">Get Directions →</a>
+                        <p class="retailer-address">Aurelian Hall, 2-1 Ginza, Chuo-ku<br>Tokyo 104-0061, Japan</p>
                     </div>
                     <div class="retailer-card">
                         <h3 class="retailer-city">Paris</h3>
-                        <p class="retailer-address">23 Place Vendôme<br>75001 Paris, France</p>
-                        <a href="#" class="watch-card-link">Get Directions →</a>
+                        <p class="retailer-address">1 Rue de l'Atelier<br>75001 Paris, France</p>
                     </div>
                 </div>
             </section>
@@ -192,18 +202,17 @@
         <footer class="footer">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <div class="footer-brand-name">ROLE<span>X</span></div>
-                    <p class="footer-tagline">Since 1905, Rolex has been at the forefront of watchmaking — crafting
-                        timepieces that endure through generations.</p>
+                    <div class="footer-brand-name">AURELIA<span>N</span></div>
+                    <p class="footer-tagline">Since 1926, AURELIAN has been at the forefront of watchmaking — crafting timepieces that endure through generations.</p>
                 </div>
                 <div class="footer-col">
                     <p class="footer-col-title">Collections</p>
                     <ul>
-                        <li><a href="./collection.html">Submariner</a></li>
-                        <li><a href="./collection.html">Datejust</a></li>
-                        <li><a href="./collection.html">Day-Date</a></li>
-                        <li><a href="./collection.html">GMT-Master II</a></li>
-                        <li><a href="./collection.html">Daytona</a></li>
+                        <li><a href="./collection.html">Abyss</a></li>
+                        <li><a href="./collection.html">Solstice</a></li>
+                        <li><a href="./collection.html">Sovereign</a></li>
+                        <li><a href="./collection.html">Voyager</a></li>
+                        <li><a href="./collection.html">Circuit</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -211,8 +220,8 @@
                     <ul>
                         <li><a href="./craftsmanship.html">Craftsmanship</a></li>
                         <li><a href="./about.html">Our Heritage</a></li>
-                        <li><a href="#">Philanthropy</a></li>
-                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="./about.html#philanthropy">Philanthropy</a></li>
+                        <li><a href="./about.html#testimonials">Testimonials</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -225,24 +234,20 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="footer-copy">&copy; 2026 ROLEX SA — Concept Redesign. All rights reserved.</p>
+                <p class="footer-copy">Concept project by Faseeh Khan. Not a real brand.</p>
                 <div class="footer-social-icons">
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://github.com/codewithfaseehh59" target="_blank" rel="noopener noreferrer" aria-label="Faseeh Khan on GitHub"><i class="fa-brands fa-github"></i></a>
                 </div>
             </div>
         </footer>
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="../JS/contact.js"></script>
-    <script src="../JS/common.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script defer src="../JS/contact.js"></script>
+    <script defer src="../JS/common.js"></script>
 </body>
 
 </html>

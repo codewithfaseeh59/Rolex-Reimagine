@@ -1,3 +1,6 @@
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (reduceMotion) gsap.globalTimeline.timeScale(50);
+
 let locoScroll;
 
 function locoScrollAnime() {
@@ -5,7 +8,7 @@ function locoScrollAnime() {
         el: document.querySelector("#wrapper"),
         smooth: true,
         multiplier: 0.9,
-        lerp: 0.07,
+        lerp: reduceMotion ? 1 : 0.07,
     });
 
     locoScroll.on("scroll", ScrollTrigger.update);
@@ -30,38 +33,53 @@ function locoScrollAnime() {
     ScrollTrigger.refresh();
 }
 
+// Resolved once the 3D model has loaded (or failed), so the loader lifts as soon as the hero is ready.
+const MAX_WATCH_START = 1200;
+let markAssetsReady;
+const assetsReady = new Promise((resolve) => { markAssetsReady = resolve; });
+
 function loaderAnime() {
     const loaderBar = document.getElementById("loader-bar");
     const loaderNum = document.getElementById("loader-num");
     const loader = document.getElementById("loader");
 
+    const MIN_SHOW = 400;
+    const MAX_WAIT = 1500;
     let prog = 0;
-    const interval = setInterval(() => {
-        prog += Math.random() * 12;
-        if (prog >= 100) {
-            prog = 100;
-            clearInterval(interval);
-            hideLoader();
-        }
-        loaderBar.style.width = Math.floor(prog) + "%";
-        loaderNum.textContent = Math.floor(prog) + "%";
-    }, 80);
+    let finished = false;
 
-    function hideLoader() {
+    function render(value) {
+        loaderBar.style.transform = `scaleX(${value / 100})`;
+        loaderNum.textContent = Math.floor(value) + "%";
+    }
+
+    const timer = setInterval(() => {
+        prog += (90 - prog) * 0.12;
+        render(prog);
+    }, 50);
+
+    function finish() {
+        if (finished) return;
+        finished = true;
+        clearInterval(timer);
+        render(100);
         gsap.to(loader, {
             opacity: 0,
-            duration: 0.8,
-            delay: 0.3,
+            duration: 0.4,
             onComplete: () => {
                 loader.style.display = "none";
             }
         });
     }
+
+    const minShown = new Promise((resolve) => setTimeout(resolve, MIN_SHOW));
+    const timeout = new Promise((resolve) => setTimeout(resolve, MAX_WAIT));
+    Promise.race([assetsReady, timeout]).then(() => minShown).then(finish);
 }
 
 function headerScrollEffect() {
+    const header = document.querySelector(".main-header");
     locoScroll.on("scroll", ({ scroll }) => {
-        const header = document.querySelector(".main-header");
         if (scroll.y > 60) {
             header.classList.add("scrolled");
         } else {
@@ -71,34 +89,44 @@ function headerScrollEffect() {
 }
 
 function initCursor() {
+    if (window.matchMedia("(hover: none)").matches) return;
+
     const cursor = document.getElementById("cursor");
     const follower = document.getElementById("cursor-follower");
     let fx = 0, fy = 0, mx = 0, my = 0;
+    let scale = 1, targetScale = 1;
+    let rafId = null;
+
+    function animateFollower() {
+        fx += (mx - fx) * 0.1;
+        fy += (my - fy) * 0.1;
+        scale += (targetScale - scale) * 0.2;
+        follower.style.transform = `translate(${fx - 16}px, ${fy - 16}px) scale(${scale})`;
+        const settled = Math.abs(mx - fx) < 0.1 && Math.abs(my - fy) < 0.1 && Math.abs(targetScale - scale) < 0.005;
+        rafId = settled ? null : requestAnimationFrame(animateFollower);
+    }
+
+    function wake() {
+        if (rafId === null) rafId = requestAnimationFrame(animateFollower);
+    }
 
     document.addEventListener("mousemove", (e) => {
         mx = e.clientX;
         my = e.clientY;
         cursor.style.transform = `translate(${mx - 4}px, ${my - 4}px)`;
+        wake();
     });
-
-    function animateFollower() {
-        fx += (mx - fx) * 0.1;
-        fy += (my - fy) * 0.1;
-        follower.style.transform = `translate(${fx - 16}px, ${fy - 16}px)`;
-        requestAnimationFrame(animateFollower);
-    }
-    animateFollower();
 
     document.querySelectorAll("a, button, .watch-card").forEach(el => {
         el.addEventListener("mouseenter", () => {
-            follower.style.width = "56px";
-            follower.style.height = "56px";
+            targetScale = 1.75;
             follower.style.opacity = "0.2";
+            wake();
         });
         el.addEventListener("mouseleave", () => {
-            follower.style.width = "32px";
-            follower.style.height = "32px";
+            targetScale = 1;
             follower.style.opacity = "0.5";
+            wake();
         });
     });
 }
@@ -108,7 +136,7 @@ function initWatch() {
 
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 768 ? 1.5 : 2));
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 100);
@@ -127,6 +155,9 @@ function initWatch() {
     pointLight.position.set(0, 3, 3);
     scene.add(pointLight);
 
+    // Idle spin renders at ~30fps; dragging, scrolling and resizing render at full rate.
+    let needsRender = true;
+    let lastFrame = 0;
     let isDragging = false;
     let idleRotation = true;
     let previousMouseX = 0;
@@ -150,12 +181,13 @@ function initWatch() {
         watchModel.rotation.x += deltaY * 0.01;
         previousMouseX = e.clientX;
         previousMouseY = e.clientY;
+        needsRender = true;
     });
 
     let watchModel = null;
     const loader = new THREE.GLTFLoader();
     loader.load(
-        "./Assets/Watch-Model/rolex.glb",
+        "./Assets/Watch-Model/aurelian.glb",
         (gltf) => {
             watchModel = gltf.scene;
 
@@ -167,10 +199,16 @@ function initWatch() {
             watchModel.scale.setScalar(1.8 / maxDim);
 
             scene.add(watchModel);
-            initWatchScroll();
+            needsRender = true;
+            gsap.to(canvas, { opacity: 1, duration: 0.6 });
+            if (!reduceMotion) initWatchScroll();
+            markAssetsReady();
         },
         undefined,
-        (err) => console.warn("Model load error:", err)
+        (err) => {
+            console.warn("Model load error:", err);
+            markAssetsReady();
+        }
     );
 
     function initWatchScroll() {
@@ -205,43 +243,46 @@ function initWatch() {
                 });
 
                 camera.position.z = 6 - self.progress * 1.5;
+                needsRender = true;
             }
         });
-
-        const partDetails = document.querySelectorAll(".part-detail");
-        partDetails.forEach((el, i) => {
-            ScrollTrigger.create({
-                trigger: "#hero-section",
-                scroller: "#wrapper",
-                start: `${15 + i * 15}% top`,
-                end: `${30 + i * 15}% top`,
-                onEnter: () => gsap.to(el, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }),
-                onLeave: () => gsap.to(el, { opacity: 0, y: -20, duration: 0.4 }),
-                onEnterBack: () => gsap.to(el, { opacity: 1, y: 0, duration: 0.6 }),
-                onLeaveBack: () => gsap.to(el, { opacity: 0, y: 20, duration: 0.4 }),
-            });
-        });
     }
 
-    function animate() {
+    // Skip rendering while the hero is scrolled out of view.
+    let heroVisible = true;
+    new IntersectionObserver(([entry]) => {
+        heroVisible = entry.isIntersecting;
+        needsRender = true;
+    }).observe(canvas);
+
+    function animate(time) {
         requestAnimationFrame(animate);
-        if (watchModel && idleRotation) {
-            watchModel.rotation.y += 0.003;
+        if (!heroVisible) {
+            lastFrame = time;
+            return;
         }
+        const delta = Math.min(time - lastFrame, 100);
+        const idleSpin = watchModel && idleRotation && !reduceMotion;
+        if (!needsRender && !(idleSpin && delta >= 33)) return;
+        lastFrame = time;
+        if (idleSpin) watchModel.rotation.y += 0.00018 * delta;
+        needsRender = false;
         renderer.render(scene, camera);
     }
-    animate();
+    requestAnimationFrame(animate);
 
     window.addEventListener("resize", () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
+        needsRender = true;
     });
 }
 
 function statsCounter() {
     document.querySelectorAll(".stat-num[data-count]").forEach((el) => {
         const target = +el.dataset.count;
+        const suffix = el.dataset.suffix ?? "+";
         ScrollTrigger.create({
             trigger: el,
             scroller: "#wrapper",
@@ -253,7 +294,7 @@ function statsCounter() {
                     duration: 2,
                     ease: "power2.out",
                     onUpdate() {
-                        el.textContent = Math.floor(this.targets()[0].val) + "+";
+                        el.textContent = Math.floor(this.targets()[0].val) + suffix;
                     }
                 });
             }
@@ -263,10 +304,10 @@ function statsCounter() {
 
 function craftSteps() {
     const craftImgs = [
-        "./Assets/Images/craft-1.png",
-        "./Assets/Images/craft-2.png",
-        "./Assets/Images/craft-3.png",
-        "./Assets/Images/craft-4.png",
+        "./Assets/Images/craft-1.webp",
+        "./Assets/Images/craft-2.webp",
+        "./Assets/Images/craft-3.webp",
+        "./Assets/Images/craft-4.webp",
     ];
 
     document.querySelectorAll(".craft-step").forEach((step, i) => {
@@ -290,10 +331,17 @@ function craftSteps() {
     });
 }
 
-function gsapAnimations() {
+// The 3D scene is the heaviest startup work: build it once the hero text has started to paint.
+let watchStarted = false;
+function startWatch() {
+    if (watchStarted) return;
+    watchStarted = true;
+    requestAnimationFrame(() => setTimeout(initWatch, 0));
+}
 
+function gsapAnimations() {
     gsap.from(".hero-eyebrow",    { opacity: 0, y: 20, duration: 1,   delay: 0.5, ease: "power3.out" });
-    gsap.from(".hero-title",      { opacity: 0, y: 40, duration: 1.2, delay: 0.8, ease: "power3.out" });
+    gsap.from(".hero-title",      { opacity: 0, y: 40, duration: 1.2, delay: 0.8, ease: "power3.out", onStart: startWatch });
     gsap.from(".hero-subtitle",   { opacity: 0, y: 20, duration: 1,   delay: 1.2, ease: "power3.out" });
     gsap.from(".hero-scroll-hint",{ opacity: 0,        duration: 1,   delay: 1.6, ease: "power2.out" });
 
@@ -323,7 +371,7 @@ function gsapAnimations() {
 }
 
 function initHamburger() {
-     const hamburger = document.getElementById("hamburger");
+    const hamburger = document.getElementById("hamburger");
     const navbar = document.getElementById("navbar");
     const overlay = document.getElementById("nav-overlay");
     const icon = document.getElementById("ham-icon");
@@ -332,18 +380,17 @@ function initHamburger() {
         hamburger.addEventListener("click", () => {
             navbar.classList.toggle("open");
             overlay.classList.toggle("active");
-            
-            if (navbar.classList.contains("open")) {
-                icon.className = "ri-close-large-fill";
-            } else {
-                icon.className = "ri-menu-3-fill";
-            }
+
+            const isOpen = navbar.classList.contains("open");
+            icon.className = isOpen ? "ri-close-large-fill" : "ri-menu-3-fill";
+            hamburger.setAttribute("aria-expanded", String(isOpen));
         });
-        
+
         overlay.addEventListener("click", () => {
             navbar.classList.remove("open");
             overlay.classList.remove("active");
             icon.className = "ri-menu-3-fill";
+            hamburger.setAttribute("aria-expanded", "false");
         });
     }
 }
@@ -352,8 +399,9 @@ locoScrollAnime();
 loaderAnime();
 headerScrollEffect();
 initCursor();
-initWatch();
 statsCounter();
 craftSteps();
 gsapAnimations();
 initHamburger();
+
+setTimeout(startWatch, MAX_WATCH_START);

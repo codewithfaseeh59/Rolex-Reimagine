@@ -1,8 +1,10 @@
-# Rolex — Perpetual Excellence
+# AURELIAN — Timeless Precision
 
-A luxury showcase website for Rolex timepieces, featuring an immersive visual experience with 3D elements, smooth animations, and elegant design.
+> **Concept project by Faseeh Khan. AURELIAN is a fictional brand — not a real company.**
 
-![Rolex Website Preview](https://img.shields.io/badge/Version-1.0.0-gold?style=flat-square)
+A concept luxury-watch website for the fictional brand AURELIAN, featuring an immersive visual experience with 3D elements, smooth animations, and elegant design.
+
+![AURELIAN Website Preview](https://img.shields.io/badge/Version-1.0.0-gold?style=flat-square)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript)
@@ -13,7 +15,7 @@ A luxury showcase website for Rolex timepieces, featuring an immersive visual ex
 
 You can view the live website here:
 
-### [Rolex — Perpetual Excellence](https://codewithfaseeh59.github.io/Rolex-Reimagine/)
+### [AURELIAN — Timeless Precision](https://codewithfaseeh59.github.io/AURELIAN-Reimagine/)
 
 ---
 
@@ -34,7 +36,7 @@ You can view the live website here:
 
 ## Project Overview
 
-**Rolex — Perpetual Excellence** is a premium brand showcase website that celebrates the legacy of Rolex watchmaking. The website combines elegant design with cutting-edge web technologies to create an immersive user experience that reflects the luxury and precision associated with the Rolex brand.
+**AURELIAN — Timeless Precision** is a concept brand showcase website for an invented luxury watch house. The website combines elegant design with modern web technologies to create an immersive user experience that reflects luxury and precision.
 
 ### Key Highlights
 
@@ -85,7 +87,7 @@ You can view the live website here:
    - Key brand metrics
 
 8. **Quote Section**
-   - Inspirational quotes from Hans Wilsdorf
+   - Founder quote from the fictional Lucien Marchand
    - Elegant typography
 
 9. **Contact Form**
@@ -126,7 +128,6 @@ You can view the live website here:
 | [GSAP](https://greensock.com/gsap/) | 3.12.5 | Animation engine |
 | [ScrollTrigger](https://greensock.com/scrolltrigger/) | 3.12.5 | Scroll-based animations |
 | [Three.js](https://threejs.org/) | 0.128.0 | 3D graphics |
-| [Swiper](https://swiperjs.com/) | 11 | Carousel/slider |
 | [Font Awesome](https://fontawesome.com/) | 7.0.1 | Icons |
 | [Remix Icon](https://remixicon.com/) | 4.2.0 | Icon library |
 
@@ -140,24 +141,24 @@ You can view the live website here:
 ## Project Structure
 
 ```
-Rolex/
+aurelian/
 ├── index.html                 # Home page
 ├── README.md                  # This file
 ├── Assets/
 │   ├── Images/
-│   │   ├── craft-1.png        # Craftsmanship image 1
-│   │   ├── craft-2.png        # Craftsmanship image 2
-│   │   ├── craft-3.png        # Craftsmanship image 3
-│   │   ├── craft-4.png        # Craftsmanship image 4
-│   │   ├── founder.png        # Hans Wilsdorf photo
-│   │   ├── Rolex-Datejust.jpg
-│   │   ├── Rolex-Daydate.jpg
-│   │   ├── Rolex-Daytona.png
-│   │   ├── Rolex-GMT.png
-│   │   ├── Rolex-Oyster.png
-│   │   └── Rolex-Submariner.png
+│   │   ├── craft-.webp        # Craftsmanship image 1
+│   │   ├── craft-.webp        # Craftsmanship image 2
+│   │   ├── craft-.webp        # Craftsmanship image 3
+│   │   ├── craft-.webp        # Craftsmanship image 4
+│   │   ├── founder.webp       # Founder portrait (placeholder)
+│   │   ├── aurelian-solstice.webp
+│   │   ├── aurelian-sovereign.webp
+│   │   ├── aurelian-circuit.webp
+│   │   ├── aurelian-voyager.webp
+│   │   ├── aurelian-origin.webp
+│   │   └── aurelian-abyss.webp
 │   └── Watch-Model/
-│       └── rolex.glb          # 3D watch model
+│       └── aurelian.glb         # 3D watch model
 ├── CSS/
 │   ├── style.css              # Main stylesheet
 │   ├── about.css              # About page styles
@@ -201,7 +202,7 @@ Rolex/
    Simply open `index.html` in your browser:
    
    ```
-   file:///path/to/Rolex/index.html
+   file:///path/to/aurelian/index.html
    ```
 
 3. **Using a Local Server** (Recommended)
@@ -297,8 +298,8 @@ loader.load(
 
 ### Optimization Tips
 
-1. **Image Optimization** — Compress all images in `Assets/Images/` before production use
-2. **Lazy Loading** — Consider adding lazy loading for below-the-fold images
+1. **Image Optimization** — Images are served as WebP with width/height set; keep new images under ~150 KB
+2. **Lazy Loading** — Below-the-fold images use `loading="lazy"`
 3. **3D Model** — The 3D model adds significant file size; consider using Draco compression
 4. **Font Loading** — Fonts are loaded locally; consider using web font optimization
 
@@ -314,7 +315,7 @@ loader.load(
 
 ### Assets
 
-- **Watch Images** — Rolex official assets (placeholders for demonstration)
+- **Watch Images** — AURELIAN official assets (placeholders for demonstration)
 - **3D Model** — Sample GLB file (placeholder)
 - **Fonts** — Google Fonts (Cormorant Garamond, Montserrat)
 
@@ -325,7 +326,6 @@ All external libraries are loaded via CDN:
 - [Locomotive Scroll](https://locomotive.github.io/locomotive-scroll/)
 - [GSAP](https://greensock.com/)
 - [Three.js](https://threejs.org/)
-- [Swiper](https://swiperjs.com/)
 - [Font Awesome](https://fontawesome.com/)
 - [Remix Icon](https://remixicon.com/)
 
@@ -333,13 +333,13 @@ All external libraries are loaded via CDN:
 
 ## Disclaimer
 
-This project is a **concept redesign** for educational/demonstration purposes. It is not affiliated with, endorsed by, or connected to ROLEX SA, Rolex, or any of its subsidiaries. All Rolex trademarks, logos, and watch images are the property of their respective owners.
+AURELIAN is a **fictional brand** created for portfolio purposes. All names, models, history, addresses and testimonials are invented and any resemblance to real companies is coincidental. The site is not affiliated with or endorsed by any real watch manufacturer.
 
 ---
 
 ## License
 
-This project is for educational purposes. All rights to the Rolex brand and assets belong to their respective owners.
+Released under the MIT License — see [LICENSE](LICENSE). Replace the placeholder images listed in `TODO-ASSETS.md` with your own original renders before publishing.
 
 ---
 

@@ -33,6 +33,7 @@ body {
 
 
 .cursor {
+    will-change: transform;
     width: 8px;
     height: 8px;
     background: #b8972a;
@@ -46,6 +47,7 @@ body {
 }
 
 .cursor-follower {
+    will-change: transform;
     width: 32px;
     height: 32px;
     border: 1px solid #b8972a;
@@ -56,7 +58,7 @@ body {
     pointer-events: none;
     z-index: 99997;
     transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s, opacity 0.3s;
+    transition: opacity 0.3s;
     opacity: 0.5;
 }
 
@@ -71,6 +73,15 @@ body {
     justify-content: center;
     flex-direction: column;
     gap: 24px;
+    animation: loaderFailsafe 0.4s ease 1.5s forwards;
+}
+
+/* Lifts the loader even if the main thread is busy, so it never blocks longer than ~1.9s. */
+@keyframes loaderFailsafe {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
 .loader-logo {
@@ -93,8 +104,10 @@ body {
 
 .loader-bar {
     height: 1px;
-    width: 0%;
+    width: 100%;
     background: #b8972a;
+    transform: scaleX(0);
+    transform-origin: left;
 }
 
 .loader-num {
@@ -182,7 +195,9 @@ body {
     font-size: 1.4rem;
     cursor: pointer;
     z-index: 1001;
-    padding: 4px;
+    padding: 0;
+    width: 44px;
+    height: 44px;
     transition: color 0.3s;
 }
 
@@ -197,6 +212,7 @@ body {
 }
 
 #watch-canvas {
+    opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -310,6 +326,7 @@ body {
 }
 
 .marquee-track {
+    will-change: transform;
     display: flex;
     white-space: nowrap;
     animation: marqueeScroll 18s linear infinite;
@@ -720,7 +737,7 @@ body {
 
 .footer-copy {
     font-size: 0.7rem;
-    color: rgba(200, 192, 176, 0.4);
+    color: rgba(200, 192, 176, 0.7);
     letter-spacing: 0.1em;
 }
 
@@ -730,7 +747,7 @@ body {
 }
 
 .footer-social-icons a {
-    color: rgba(200, 192, 176, 0.4);
+    color: rgba(200, 192, 176, 0.6);
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -786,6 +803,27 @@ body {
 .page-hero-title em {
     font-style: italic;
     color: #d4af5a;
+}
+
+@media (hover: none) {
+    .cursor,
+    .cursor-follower {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .marquee-track {
+        animation: none;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -872,7 +910,8 @@ body {
     .navbar {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
+        transform: translateX(100%);
         width: 75%;
         max-width: 320px;
         height: 100vh;
@@ -882,12 +921,12 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
         z-index: 1000;
     }
 
     .navbar.open {
-        right: 0;
+        transform: translateX(0);
     }
 
     .nav-links {
@@ -1004,6 +1043,73 @@ body {
     .cursor,
     .cursor-follower {
         display: none;
+    }
+
+    .nav-logo {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+
+    .nav-links li a {
+        display: inline-block;
+        padding: 12px 8px;
+    }
+
+    .btn-outline {
+        line-height: 18px;
+        padding: 14px 38px;
+        min-height: 44px;
+    }
+
+    .watch-card-link {
+        display: inline-block;
+        padding: 14px 0 18px;
+    }
+
+    .watch-card-link::after {
+        bottom: 14px;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 0;
+    }
+
+    .footer-col ul li a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+
+    .footer-social-icons {
+        gap: 8px;
+    }
+
+    .footer-social-icons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+    }
+
+    .hero-eyebrow,
+    .section-label,
+    .about-label,
+    .stat-label,
+    .quote-author,
+    .footer-col-title,
+    .watch-card-ref,
+    .watch-card-link,
+    .hero-scroll-hint span,
+    .loader-num,
+    .footer-copy,
+    .btn-outline {
+        font-size: 0.75rem;
+    }
+
+    .hero-eyebrow {
+        letter-spacing: 0.3em;
     }
 }
 

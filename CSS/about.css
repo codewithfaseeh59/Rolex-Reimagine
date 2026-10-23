@@ -172,6 +172,10 @@
     color: #c8c0b0;
 }
 
+.values-grid-three {
+    grid-template-columns: repeat(3, 1fr);
+}
+
 @media (max-width: 1024px) {
     .founder-section { padding: 80px 40px; }
     .founder-grid { gap: 50px; }
